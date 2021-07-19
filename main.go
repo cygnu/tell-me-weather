@@ -1,9 +1,14 @@
 package main
 
 import (
-	"github.com/cygnu/tell-me-weather/server"
+	"github.com/labstack/echo"
+	"net/http"
 )
 
 func main() {
-	server.StartWebServer()
+	e := echo.New()
+	e.GET("/", func(c echo.Context) error {
+		return c.String(http.StatusOK, "Hello, World!")
+	})
+	e.Logger.Fatal(e.Start(":1323"))
 }
