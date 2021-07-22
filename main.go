@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "github.com/cygnu/tell-me-weather/server"
 
 func main()  {
-	fmt.Println("Hello World")
+	server.StartWebServer()
 }
