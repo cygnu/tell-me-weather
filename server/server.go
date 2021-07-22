@@ -3,11 +3,13 @@ package server
 import (
 	"fmt"
 	"github.com/cygnu/tell-me-weather/config"
+	"github.com/cygnu/tell-me-weather/openweather"
 	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request)  {
-	fmt.Println("Hello World")
+func handler(w http.ResponseWriter, r *http.Request) {
+	apiClient, _ := openweather.NewAPIClient(openweather.BaseURL, config.Config.ApiKey)
+	apiClient.GetForecast("Tokyo,jp")
 }
 
 func StartWebServer() error {
